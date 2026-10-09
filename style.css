@@ -35,13 +35,11 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Logo 亮銀色與細字體樣式 */
 .logo {
-  font-weight: 300; /* 或 200 / lighter */
-  color: #c0c0c0; /* 亮銀色調 */
-  background: linear-gradient(135deg, #e6e6e6 0%, #ffffff 50%, #b0b0b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 1.56rem; /* 從 1.3rem 放大 1.2 倍 */
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff !important;
 }
 
 .navbar nav a {
