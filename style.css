@@ -21,7 +21,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar - 全版套用名片深藍色 */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@ body {
 }
 
 .logo {
-  font-size: 1.56rem; /* 從 1.3rem 放大 1.2 倍 */
+  font-size: 1.56rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: #ffffff !important;
@@ -54,7 +54,7 @@ body {
   opacity: 0.75;
 }
 
-/* Hero Section - 加深藍色遮罩（88%~95% 不透明度）讓主色更明顯 */
+/* Hero Section */
 .hero {
   height: 55vh;
   background: linear-gradient(rgba(27, 40, 54, 0.88), rgba(27, 40, 54, 0.95)),
@@ -167,14 +167,46 @@ body {
   color: #556370;
 }
 
-/* Footer - 套用名片深藍色 */
+/* Footer / Contact Section */
 footer {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem 3rem;
   background-color: var(--primary-navy) !important;
   color: var(--accent-silver) !important;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 1px;
+}
+
+.footer-content h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+.footer-content .designer-name {
+  font-size: 0.95rem;
+  color: #9aa8b6;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.contact-info strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #6c7a89;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Mobile Responsive */
