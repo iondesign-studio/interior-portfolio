@@ -1,13 +1,12 @@
-/* 定義名片企業色變數 */
+/* Color Palette */
 :root {
-  --primary-navy: #1b2836;       /* 名片主色：深藍灰 */
-  --accent-silver: #e5e8ec;      /* 名片輔助色：銀白/淺灰 */
-  --text-dark: #2c363f;          /* 一般內文深色 */
-  --bg-light: #f4f6f8;           /* 頁面背景淺色 */
-  --border-color: #e2e7ec;
+  --primary-navy: #1b2836;       /* 深藍主色 */
+  --accent-silver: #e5e8ec;      /* 銀白輔助色 */
+  --text-dark: #232d37;
+  --bg-light: #fafafa;
+  --border-light: #eaeaea;
 }
 
-/* Base Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,108 +25,118 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
-  background: var(--primary-navy) !important;
-  color: #ffffff;
+  padding: 1.8rem 6%;
+  background: var(--primary-navy);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  font-size: 1.56rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #ffffff !important;
+.logo a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .navbar nav a {
-  margin-left: 2rem;
+  margin-left: 2.5rem;
   text-decoration: none;
-  color: var(--accent-silver) !important;
-  font-size: 0.95rem;
+  color: var(--accent-silver);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
   transition: opacity 0.3s;
 }
 
 .navbar nav a:hover {
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 /* Hero Section */
 .hero {
-  height: 55vh;
-  background: linear-gradient(rgba(27, 40, 54, 0.88), rgba(27, 40, 54, 0.95)),
-              url('https://picsum.photos/1600/900?random=10') center/cover no-repeat !important;
+  height: 50vh;
+  background: linear-gradient(rgba(27, 40, 54, 0.85), rgba(27, 40, 54, 0.92)),
+              url('https://picsum.photos/1600/900?random=10') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #ffffff !important;
+  color: #ffffff;
   padding: 0 1rem;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 300;
-  margin-bottom: 0.75rem;
-  letter-spacing: 2px;
-  color: #ffffff !important;
+  letter-spacing: 3px;
+  margin-bottom: 0.8rem;
 }
 
-.hero p {
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--accent-silver) !important;
-  letter-spacing: 1px;
-}
-
-/* Portfolio Section */
-.portfolio-container {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
-}
-
-.portfolio-container h2 {
-  font-size: 1.8rem;
-  text-align: center;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  color: var(--primary-navy);
-}
-
-.portfolio-container .subtitle {
-  text-align: center;
-  color: #6c7a89;
-  margin-bottom: 3rem;
+.hero .subtitle {
   font-size: 0.95rem;
+  color: var(--accent-silver);
+  letter-spacing: 1.5px;
+  font-weight: 300;
 }
 
-/* Portfolio Grid */
+/* Category Filter Menu */
+.portfolio-container {
+  max-width: 1300px;
+  margin: 3rem auto 6rem;
+  padding: 0 2rem;
+}
+
+.filter-menu {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1rem;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #888888;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: var(--primary-navy);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-navy);
+}
+
+/* Gallery Grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
 }
 
 .portfolio-card {
-  background: #ffffff;
-  border-radius: 6px;
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #000;
 }
 
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(27, 40, 54, 0.15);
+.card-link {
+  text-decoration: none;
+  display: block;
 }
 
 .card-image {
+  position: relative;
   width: 100%;
-  height: 240px;
+  height: 280px;
   overflow: hidden;
 }
 
@@ -135,86 +144,152 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.portfolio-card:hover .card-image img {
-  transform: scale(1.05);
-}
-
-.card-info {
-  padding: 1.5rem;
-}
-
-.card-info .category {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #7b8a99;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s;
   display: block;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
 }
 
-.card-info h3 {
-  font-size: 1.25rem;
+/* Hover Effect: 圖片滑入放大並加上薄遮罩，浮現作品資訊 */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(27, 40, 54, 0.82);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.08);
+  opacity: 0.6;
+}
+
+.portfolio-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay .location {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--accent-silver);
   margin-bottom: 0.5rem;
+}
+
+.card-overlay .title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.card-overlay .more-btn {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.portfolio-card:hover .more-btn:hover {
+  background: #ffffff;
   color: var(--primary-navy);
 }
 
-.card-info p {
-  font-size: 0.9rem;
-  color: #556370;
-}
-
-/* Footer / Contact Section */
+/* Footer Section */
 footer {
-  text-align: center;
-  padding: 4rem 1rem 3rem;
-  background-color: var(--primary-navy) !important;
-  color: var(--accent-silver) !important;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  background-color: var(--primary-navy);
+  color: var(--accent-silver);
+  padding: 5rem 6% 2.5rem;
 }
 
-.footer-content h3 {
-  font-size: 1.3rem;
-  font-weight: 400;
-  margin-bottom: 0.25rem;
-  color: #ffffff;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-content .designer-name {
-  font-size: 0.95rem;
-  color: #9aa8b6;
-  margin-bottom: 1.5rem;
-}
-
-.contact-info {
-  margin-bottom: 2rem;
-  line-height: 1.8;
-}
-
-.contact-info strong {
-  color: #ffffff;
+.footer-brand h2 {
+  font-size: 1.5rem;
   font-weight: 500;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand .company-name {
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.footer-brand .designer {
+  font-size: 0.9rem;
+  color: #9aa8b6;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item .label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #8899a6;
+  margin-bottom: 0.2rem;
+}
+
+.contact-item a,
+.contact-item span {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.contact-item a:hover {
+  opacity: 0.8;
 }
 
 .copyright {
+  text-align: center;
   font-size: 0.8rem;
   color: #6c7a89;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-top: 2.5rem;
 }
 
-/* Mobile Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.8rem;
+  .navbar {
+    padding: 1.2rem 5%;
+  }
+  .navbar nav a {
+    margin-left: 1rem;
   }
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
