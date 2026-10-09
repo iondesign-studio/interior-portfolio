@@ -3,90 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[ion]+ 離子室內裝修設計 | 作品集</title>
+  <title>[ion]+ 離子室內裝修設計 | PORTFOLIO</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header / Navigation -->
+  <!-- Fixed Header -->
   <header class="navbar">
-    <div class="logo">[ion]<sup>+</sup> DESIGN</div>
+    <div class="logo">
+      <a href="#">[ion]<sup>+</sup> INTERIOR DESIGN</a>
+    </div>
     <nav>
-      <a href="#about">關於我們</a>
-      <a href="#portfolio">作品案例</a>
-      <a href="#contact">聯絡我們</a>
+      <a href="#about">ABOUT</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#contact">CONTACT</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Banner -->
   <section class="hero">
     <div class="hero-content">
       <h1>離子室內裝修設計</h1>
-      <p>重塑光的流動 · 定義空間的質感與溫度</p>
+      <p class="subtitle">重塑光的流動 · 定義空間的質感與溫度</p>
     </div>
   </section>
 
-  <!-- Portfolio Grid Section -->
+  <!-- Portfolio Main Area -->
   <section id="portfolio" class="portfolio-container">
-    <h2>精選案例</h2>
-    <p class="subtitle">探索我們的住宅與商業空間設計作品</p>
+    
+    <!-- Category Filter (參考各大設計官網熱門功能) -->
+    <div class="filter-menu">
+      <button class="filter-btn active" onclick="filterSelection('all')">ALL</button>
+      <button class="filter-btn" onclick="filterSelection('residential')">RESIDENTIAL 住宅</button>
+      <button class="filter-btn" onclick="filterSelection('commercial')">COMMERCIAL 商業</button>
+    </div>
 
+    <!-- Gallery Grid -->
     <div class="portfolio-grid">
       
-      <!-- 作品卡片 1 -->
-      <article class="portfolio-card">
-        <div class="card-image">
-          <img src="https://picsum.photos/800/600?random=1" alt="極簡光影宅" loading="lazy" width="800" height="600">
-        </div>
-        <div class="card-info">
-          <span class="category">現代住宅</span>
-          <h3>極簡光影宅</h3>
-          <p>台北市 · 35 坪 · 運用天然大理石與隱藏式光源塑造寧靜氛圍</p>
-        </div>
+      <!-- 作品 1 -->
+      <article class="portfolio-card filter-item residential">
+        <a href="#contact" class="card-link">
+          <div class="card-image">
+            <img src="https://picsum.photos/900/600?random=1" alt="極簡光影宅" loading="lazy" width="900" height="600">
+            <div class="card-overlay">
+              <span class="location">TAIPEI · 35 坪</span>
+              <h3 class="title">極簡光影宅</h3>
+              <span class="more-btn">VIEW PROJECT →</span>
+            </div>
+          </div>
+        </a>
       </article>
 
-      <!-- 作品卡片 2 -->
-      <article class="portfolio-card">
-        <div class="card-image">
-          <img src="https://picsum.photos/800/600?random=2" alt="侘寂風人文居家" loading="lazy" width="800" height="600">
-        </div>
-        <div class="card-info">
-          <span class="category">侘寂風</span>
-          <h3>靜寂之境</h3>
-          <p>新北市 · 42 坪 · 特殊塗料與微水泥的沉靜質地交織</p>
-        </div>
+      <!-- 作品 2 -->
+      <article class="portfolio-card filter-item residential">
+        <a href="#contact" class="card-link">
+          <div class="card-image">
+            <img src="https://picsum.photos/900/600?random=2" alt="靜寂之境" loading="lazy" width="900" height="600">
+            <div class="card-overlay">
+              <span class="location">NEW TAIPEI · 42 坪</span>
+              <h3 class="title">靜寂之境</h3>
+              <span class="more-btn">VIEW PROJECT →</span>
+            </div>
+          </div>
+        </a>
       </article>
 
-      <!-- 作品卡片 3 -->
-      <article class="portfolio-card">
-        <div class="card-image">
-          <img src="https://picsum.photos/800/600?random=3" alt="精品咖啡廳設計" loading="lazy" width="800" height="600">
-        </div>
-        <div class="card-info">
-          <span class="category">商業空間</span>
-          <h3>Urban Roast Cafe</h3>
-          <p>台中市 · 50 坪 · 金屬質感與溫潤木質結合的商業體驗場域</p>
-        </div>
+      <!-- 作品 3 -->
+      <article class="portfolio-card filter-item commercial">
+        <a href="#contact" class="card-link">
+          <div class="card-image">
+            <img src="https://picsum.photos/900/600?random=3" alt="Urban Roast Cafe" loading="lazy" width="900" height="600">
+            <div class="card-overlay">
+              <span class="location">TAICHUNG · 50 坪</span>
+              <h3 class="title">Urban Roast Cafe</h3>
+              <span class="more-btn">VIEW PROJECT →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- 作品 4 -->
+      <article class="portfolio-card filter-item residential">
+        <a href="#contact" class="card-link">
+          <div class="card-image">
+            <img src="https://picsum.photos/900/600?random=4" alt="光流與木質的私邸" loading="lazy" width="900" height="600">
+            <div class="card-overlay">
+              <span class="location">TAOYUAN · 55 坪</span>
+              <h3 class="title">光流與木質私邸</h3>
+              <span class="more-btn">VIEW PROJECT →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- 作品 5 -->
+      <article class="portfolio-card filter-item commercial">
+        <a href="#contact" class="card-link">
+          <div class="card-image">
+            <img src="https://picsum.photos/900/600?random=5" alt="AURA 藝廊工作室" loading="lazy" width="900" height="600">
+            <div class="card-overlay">
+              <span class="location">TAIPEI · 30 坪</span>
+              <h3 class="title">AURA 藝廊工作室</h3>
+              <span class="more-btn">VIEW PROJECT →</span>
+            </div>
+          </div>
+        </a>
       </article>
 
     </div>
   </section>
 
-  <!-- Footer / Contact Section (名片聯絡資訊) -->
+  <!-- Footer / Contact Section (整合名片質感) -->
   <footer id="contact">
-    <div class="footer-content">
-      <h3>離子室內裝修設計</h3>
-      <p class="designer-name">Designer 葉仁蒲 MEI</p>
-      
-      <div class="contact-info">
-        <p><strong>Email:</strong> iondesign.mei@gmail.com</p>
-        <p><strong>Phone:</strong> +886 963 454 111</p>
-        <p><strong>Tax ID:</strong> 95370137</p>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>[ion]<sup>+</sup> DESIGN</h2>
+        <p class="company-name">離子室內裝修設計</p>
+        <p class="designer">Designer 葉仁蒲 MEI</p>
       </div>
-      
-      <p class="copyright">&copy; 2026 [ion]+ Interior Design. All rights reserved.</p>
+
+      <div class="footer-contact">
+        <div class="contact-item">
+          <span class="label">EMAIL</span>
+          <a href="mailto:iondesign.mei@gmail.com">iondesign.mei@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">PHONE</span>
+          <a href="tel:+886963454111">+886 963 454 111</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">TAX ID</span>
+          <span>95370137</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2026 [ion]+ Interior Design. All rights reserved.
     </div>
   </footer>
+
+  <!-- Simple Vanilla JavaScript Filter Script -->
+  <script>
+    function filterSelection(c) {
+      const items = document.getElementsByClassName("filter-item");
+      const btns = document.getElementsByClassName("filter-btn");
+
+      for (let btn of btns) {
+        btn.classList.remove("active");
+      }
+      event.currentTarget.classList.add("active");
+
+      for (let item of items) {
+        if (c === "all" || item.classList.contains(c)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
