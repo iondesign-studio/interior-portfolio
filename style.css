@@ -292,6 +292,12 @@ body {
   gap: 4rem 3rem;
 }
 
+/* 只有一件作品時置中放大，作品增加後自動回到多欄排列 */
+.portfolio-grid:has(> .portfolio-card:only-child) {
+  grid-template-columns: minmax(0, 860px);
+  justify-content: center;
+}
+
 .portfolio-card {
   position: relative;
 }
@@ -569,5 +575,102 @@ footer {
   .footer-contact {
     min-width: 0;
     width: 100%;
+  }
+}
+
+/* ---------- Lightbox 相簿 ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(17, 17, 17, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 4.5rem;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lb-figure {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lb-img {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  display: block;
+}
+
+.lb-caption {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 1.5rem;
+  color: var(--grey);
+  font-family: var(--font-zh);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+.lb-count {
+  font-family: var(--font-en-title);
+  letter-spacing: 0.1em;
+}
+
+.lb-close,
+.lb-prev,
+.lb-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-en-title);
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.lb-close:hover,
+.lb-prev:hover,
+.lb-next:hover {
+  opacity: 1;
+}
+
+.lb-close {
+  top: 1.2rem;
+  right: 1.6rem;
+  font-size: 2.2rem;
+}
+
+.lb-prev,
+.lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.lb-prev { left: 0.8rem; }
+.lb-next { right: 0.8rem; }
+
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 3.5rem 0.75rem;
+  }
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: 0.4rem;
+    transform: none;
+    font-size: 2.4rem;
   }
 }
