@@ -85,7 +85,7 @@
 
       <!-- 作品：頭份築尚Ｃ宅（圖片放在 images/toufen-c/） -->
       <article class="portfolio-card filter-item residential">
-        <a href="images/toufen-c/1.jpg" class="card-link" data-gallery="toufen-c" aria-label="瀏覽「頭份築尚Ｃ宅」作品相簿">
+        <a href="toufen-c.html" class="card-link">
           <div class="card-image">
             <img src="images/toufen-c/1.jpg" alt="頭份築尚Ｃ宅" loading="lazy" width="900" height="600">
             <span class="card-plus" aria-hidden="true">+</span>
@@ -96,30 +96,25 @@
             <span class="more-btn">VIEW PROJECT →</span>
           </div>
         </a>
-        <!-- 相簿圖片清單：新增或刪除照片只要改這裡 -->
-        <template class="gallery-images">
-          <img src="images/toufen-c/1.jpg" alt="頭份築尚Ｃ宅 1">
-          <img src="images/toufen-c/2.jpg" alt="頭份築尚Ｃ宅 2">
-          <img src="images/toufen-c/3.jpg" alt="頭份築尚Ｃ宅 3">
-          <img src="images/toufen-c/4.jpg" alt="頭份築尚Ｃ宅 4">
-          <img src="images/toufen-c/5.jpg" alt="頭份築尚Ｃ宅 5">
-          <img src="images/toufen-c/6.jpg" alt="頭份築尚Ｃ宅 6">
-        </template>
+      </article>
+
+      <!-- 作品：青埔京硯Ｌ宅（圖片放在 images/qingpu-l/） -->
+      <article class="portfolio-card filter-item residential">
+        <a href="qingpu-l.html" class="card-link">
+          <div class="card-image">
+            <img src="images/qingpu-l/1.jpg" alt="青埔京硯Ｌ宅" loading="lazy" width="900" height="600">
+            <span class="card-plus" aria-hidden="true">+</span>
+          </div>
+          <div class="card-info">
+            <span class="location">TAOYUAN · QINGPU</span>
+            <h3 class="title">青埔京硯Ｌ宅</h3>
+            <span class="more-btn">VIEW PROJECT →</span>
+          </div>
+        </a>
       </article>
 
     </div>
   </section>
-
-  <!-- Lightbox 相簿 -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品相簿" hidden>
-    <button class="lb-close" type="button" aria-label="關閉">×</button>
-    <button class="lb-prev" type="button" aria-label="上一張">‹</button>
-    <figure class="lb-figure">
-      <img class="lb-img" src="" alt="">
-      <figcaption class="lb-caption"><span class="lb-title"></span><span class="lb-count"></span></figcaption>
-    </figure>
-    <button class="lb-next" type="button" aria-label="下一張">›</button>
-  </div>
 
   <!-- Footer / Contact Section（參考名片設計） -->
   <footer id="contact">
@@ -174,72 +169,6 @@
         }
       }
     }
-    // ---------- Lightbox 相簿 ----------
-    (function () {
-      const lb = document.getElementById("lightbox");
-      const img = lb.querySelector(".lb-img");
-      const titleEl = lb.querySelector(".lb-title");
-      const countEl = lb.querySelector(".lb-count");
-      let images = [], index = 0, title = "", lastFocus = null;
-
-      function show(i) {
-        index = (i + images.length) % images.length;
-        img.src = images[index].src;
-        img.alt = images[index].alt;
-        titleEl.textContent = title;
-        countEl.textContent = (index + 1) + " / " + images.length;
-      }
-
-      function open(card) {
-        const tpl = card.querySelector("template.gallery-images");
-        if (!tpl) return false;
-        images = [...tpl.content.querySelectorAll("img")].map(el => ({
-          src: el.getAttribute("src"), alt: el.getAttribute("alt") || ""
-        }));
-        if (!images.length) return false;
-        title = card.querySelector(".title").textContent;
-        lastFocus = document.activeElement;
-        lb.hidden = false;
-        document.body.style.overflow = "hidden";
-        show(0);
-        lb.querySelector(".lb-close").focus();
-        return true;
-      }
-
-      function close() {
-        lb.hidden = true;
-        document.body.style.overflow = "";
-        if (lastFocus) lastFocus.focus();
-      }
-
-      document.querySelectorAll(".card-link[data-gallery]").forEach(link => {
-        link.addEventListener("click", e => {
-          if (open(link.closest(".portfolio-card"))) e.preventDefault();
-        });
-      });
-
-      lb.querySelector(".lb-close").addEventListener("click", close);
-      lb.querySelector(".lb-prev").addEventListener("click", () => show(index - 1));
-      lb.querySelector(".lb-next").addEventListener("click", () => show(index + 1));
-      lb.addEventListener("click", e => { if (e.target === lb) close(); });
-
-      document.addEventListener("keydown", e => {
-        if (lb.hidden) return;
-        if (e.key === "Escape") close();
-        else if (e.key === "ArrowLeft") show(index - 1);
-        else if (e.key === "ArrowRight") show(index + 1);
-      });
-
-      // 手機左右滑動切換
-      let startX = null;
-      lb.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
-      lb.addEventListener("touchend", e => {
-        if (startX === null) return;
-        const dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
-        startX = null;
-      });
-    })();
   </script>
 
 </body>
